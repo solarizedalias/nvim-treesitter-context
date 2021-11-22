@@ -267,6 +267,8 @@ local function delete_buf()
 end
 
 local function display_window(width, height, row, col)
+  local sep = config.sep or '-'
+  local border = {'', '', '', '', sep, sep, sep, ''}
   if winid == nil or not api.nvim_win_is_valid(winid) then
     local bufnr = get_buf()
     winid = api.nvim_open_win(bufnr, false, {
@@ -278,6 +280,7 @@ local function display_window(width, height, row, col)
       focusable = false,
       style = 'minimal',
       noautocmd = true,
+      border = border,
     })
     api.nvim_win_set_var(winid, 'treesitter_context', true)
   else
@@ -288,6 +291,7 @@ local function display_window(width, height, row, col)
       height = height,
       row = row,
       col = col,
+      border = border,
     })
   end
   api.nvim_win_set_option(winid, 'winhl', 'NormalFloat:TreesitterContext')
