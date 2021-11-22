@@ -241,6 +241,7 @@ local function display_window(width, height, row, col)
     })
   end
   api.nvim_win_set_option(winid, 'winhl', 'NormalFloat:TreesitterContext')
+  api.nvim_win_set_option(winid, 'winblend', config.winblend or 0)
 end
 
 -- Exports
