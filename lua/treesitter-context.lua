@@ -392,7 +392,7 @@ function M.open()
 
   local gutter_width = get_gutter_width()
   local win_width  = math.max(1, api.nvim_win_get_width(0) - gutter_width)
-  local win_height = math.max(1, #context_nodes)
+  local win_height = math.max(config.min_height or 1, #context_nodes)
 
   display_window(win_width, win_height, 0, gutter_width)
 
