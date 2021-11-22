@@ -267,7 +267,7 @@ local function delete_buf()
 end
 
 local function display_window(width, height, row, col)
-  local sep = config.sep or '-'
+  local sep = config.separator or '┄'
   local border = {'', '', '', '', sep, sep, sep, ''}
   if winid == nil or not api.nvim_win_is_valid(winid) then
     local bufnr = get_buf()
